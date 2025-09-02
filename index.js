@@ -55,7 +55,19 @@ function countPrints(count, start) {
     let, const -> Block level scope their instance only is prsent inside the scope
 
     When dealing with complex primitives in JS we are actually dealing with the addresses of the variables ( objects, arrays, function ) => direclty dealing with actual variables
+
+
+    Functions are piece of code that allows the developer to abstract the logic inside a block and whenever you want to call the logic you can call that function with the function name and parameters. Helps to follow DRY (Do not repeat yourself)
+
+    In JS functions can take other functions as Input / arguments, the passed functions are called callback functions
+
+    JS is single threaded, means it cannot use other threads for running the task at a single point of time, means it does have to wait for the every task to be performed and makes the application slow, 
+
+    Here comes the High level API that environement provides that allow the use of other thread of the systems.
+
+    Event loop defines the execution of the Asynchrnous functions that are provieded by the runtime / browser
 */
+
 
 function printEven(arr) {
     arr.forEach(num => {
@@ -76,3 +88,5 @@ function getMax(arr) {
 }
 
 console.log(getMax([1,2,3,4,5,5,6]));
+
+
