@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="search-input"></label>
+        <input type="text" id="search-input" placeholder="Enter your search items">
+
+        <p class="output"></p>
+    </div>
+</body>
+
+<script>
+    const searchInput = document.getElementById("search-input");
+    const output = document.getElementsByClassName('output')[0];
+    let timeout = null;
+
+    searchInput.addEventListener("input", e => {
+
+        clearTimeout(timeout);
+
+        timeout = setTimeout(function() {
+            searchInput.value = "all the searched items"
+        }, 500);
+    })
+</script>
+</html>

@@ -1,8 +1,56 @@
 const fs = require("fs");
 
 
+function readFile(path, successCallback, errorCallback) {
+
+    // fs.readFile is asynchronous task and we have to pass the callback functions
+    fs.readFile(path,  "utf-8", (err, result) => {
+        if(!err) {
+            successCallback(result);
+            return
+        }
+
+        errorCallback(err);
+    })
+}
 
 
+readFile(".env", (data) => {
+    console.log(data);
+}, (err) => {
+    console.log(err);
+})
+
+
+function readAndWriteFile(path, successCallback, errorCallback) {
+    fs.readFile(path, 'utf-8', (e, result) => {
+        if(!e) {
+            successCallback(result);
+            return
+        }
+
+        errorCallback(e);
+    })
+}
+
+
+readAndWriteFile(".env", (result) => {
+    const data = `${result}
+    random word
+    `
+
+    fs.writeFile(".env", data, (e) => {
+        if(!e) {
+            console.log("successfully write the file");
+        }
+
+        console.log("issue occured when reading the file");
+    })
+
+
+}, (e) => {
+    console.log("error occured when reading the file");
+})
 
 /*
 
